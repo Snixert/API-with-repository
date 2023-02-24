@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Friday.Repository.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using Friday.Repository.Models;
 using Friday.Repository.Repositories;
 
@@ -35,18 +28,18 @@ namespace Friday.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Car>> PostCar(Car car)
+        public async Task<ActionResult<Car>> AddCar(Car car)
         {
             var c = await repository.AddCar(car);
             return c;
         }
 
-        [HttpPut()]
+        [HttpPut]
         public async Task<ActionResult<Car>> UpdateCar(Car car)
         {
-            car = await repository.UpdateCar(car);
+            var c = await repository.UpdateCar(car);
 
-            return car;
+            return c;
         }
 
         [HttpDelete("{id}")]

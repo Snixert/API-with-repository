@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DatabaseContext>();
 builder.Services.AddTransient<ICarRepository, CarRepository>();
+builder.Services.AddTransient<IPersonRepository, PersonRepository>();
 
 
 var app = builder.Build();
